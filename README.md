@@ -3,7 +3,16 @@ React Venta
 
 Comandos : 
 Instalar dependencias:
-yarn
+yarn 
 
 Ejecutar el proyecto :
-yarn dev
+yarn vite
+
+Nota importante : 
+En el file vite.config.js se agrego la siguiente configuración por que no andaba watch funcionality en WSL2.
+server:{
+  watch:{
+    usePolling:true
+  },
+},
+
