@@ -1,0 +1,73 @@
+.c-input-container {
+  position: relative;
+}
+
+.c-input-container .c-label {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  color: rgb(15, 15, 15);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  transition: all 75ms;
+  z-index: 1;
+}
+
+.c-input-container > .c-input:focus ~ .c-label,
+.c-input:not(:placeholder-shown) ~ .c-label {
+  transform: scale(0.85) translateY(-0.65rem) translateX(0.15rem);
+  color: hsl(0, 0%, 50%);
+}
+
+.c-input {
+  color: black;
+  background: white;
+  padding: 0 0.5rem;
+  padding-top: 1rem;
+  border-radius: 0.25rem;
+  font-size: 1.125rem;
+  height: 3.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  width: 100%;
+  z-index: 10;
+}
+
+.c-input::placeholder {
+  opacity: 0;
+}
+
+.c-container {
+  position: relative;
+  margin: 1rem auto;
+  width: 18rem;
+}
+
+.c-modal {
+  background-color: white;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  left: 0;
+  right: 0;
+  padding: 0.15rem;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+.c-item {
+  cursor: pointer;
+  padding: 0.35rem 0;
+  border-radius: 0.25rem;
+}
+
+.c-item:hover {
+  background: hsl(0, 0%, 90%);
+}
