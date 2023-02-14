@@ -56,6 +56,12 @@ const AutocompleteInput = (props) => {
     setProductList(productos);
     setFilteredList(productos);
   };
+  useEffect(() => {
+    console.log("desde autocomplete cambio props.modalInput",props.modalInput)
+    if (props.modalInput != isModalOpen){
+      setModalOpen(props.modalInput);
+    }
+  }, [props.modalInput])
 
   useEffect(() => {
     fetchData();

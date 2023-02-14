@@ -1,4 +1,4 @@
-import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faMinus, faPlus, faRemove } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { Producto } from "../interfaces/Producto";
@@ -11,6 +11,12 @@ const ListaProductos = (props) => {
     setProductos(props.productos);
   }, [props]);
 
+  useEffect(() => {
+   const total = productos.reduce((total, producto) => total + producto.precio * producto.cantidad, 0);
+   props.setCompraTotal(total);
+   console.log("movio productos, Total =",total)
+  }, [productos]);
+
   const removeCantidad = (producto: Producto) => {
     setProductos(
       productos.map((p) => {
@@ -21,7 +27,20 @@ const ListaProductos = (props) => {
       })
     );
   };
-  const addCantidad = (producto: Producto) => {
+
+  const removeItem = (producto: Producto) => {
+    const filtrados =  productos.filter(p => p.id !== producto.id);
+    setProductos(
+      filtrados
+    );
+     if (filtrados.length == 0) {
+      props.setCompraTotal(0);
+    }
+    props.setProductosAComprar(filtrados)
+  };
+
+  const addCantidad = (producto: Producto,e) => {
+    e.preventDefault();
     setProductos(
       productos.map((p) => {
         if (p.id === producto.id) {
@@ -31,7 +50,8 @@ const ListaProductos = (props) => {
       })
     );
   };
-
+ 
+ 
   return (
     <div>
       <div className="c-list">
@@ -39,6 +59,8 @@ const ListaProductos = (props) => {
           <span className="c-nombre">Nombre</span>
           <span className="c-precio">Precio</span>
           <span className="c-cantidad">Cantidad</span>
+          <span className="c-quitar">Quitar</span>
+
         </div>
         {productos.map((producto) => (
           <div className="c-producto" key={producto.id}>
@@ -47,14 +69,17 @@ const ListaProductos = (props) => {
             <span className="c-cantidad">
               <FontAwesomeIcon icon={faMinus} onClick={() => removeCantidad(producto)} />
               <span>{producto.cantidad}</span>
-              <FontAwesomeIcon icon={faPlus} onClick={() => addCantidad(producto)} />
+              <FontAwesomeIcon icon={faPlus} onClick={(e) => addCantidad(producto,e)} />
+            </span>
+            <span className="c-quitar">
+              <FontAwesomeIcon icon={faRemove} onClick={() => removeItem(producto)} />
             </span>
           </div>
         ))}
       </div>
       <div className="c-total">
         <span>Total</span>
-        <span>${productos.reduce((total, producto) => total + producto.precio * producto.cantidad, 0)}</span>
+        <span className="precioFinal">${productos.reduce((total, producto) => total + producto.precio * producto.cantidad, 0)}</span>
       </div>
     </div>
   );
