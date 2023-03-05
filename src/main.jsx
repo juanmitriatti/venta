@@ -10,6 +10,8 @@ import './index.css';
 import ListadoProducto from './producto/ListadoProducto';
 import ActualizarProducto from './producto/ActualizarProducto';
 import VentaHoy from './venta/VentaHoy';
+import VentaUltimosSiete from './venta/VentaUltimosSiete';
+
 
 const NoPage = () => {
   return <h1>Esta página no existe. Error 404</h1>;
@@ -26,6 +28,8 @@ export default function Main() {
           <Route index element={<Home />} />
           <Route path="venta" element={<Venta />} />
           <Route path="venta-hoy" element={<VentaHoy />} />
+          <Route path="venta-ultimos-siete" element={<VentaUltimosSiete />} />
+
           <Route path="altaproducto" element={<AltaProducto />} />
           <Route path="listadoproducto" element={<ListadoProducto />} />
           <Route path="actualizarproducto/:id" element={<ActualizarProducto />} />

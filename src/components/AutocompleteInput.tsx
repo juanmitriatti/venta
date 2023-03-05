@@ -70,7 +70,7 @@ const AutocompleteInput = (props) => {
   const selectProduct = (producto: Producto) => {
     props.selectProduct(producto);
     const productos = productList.filter((p) => p.id !== producto.id);
-    console.log(productos);
+    console.log("selectProduct",productos);
 
     setProductList(productos);
     setFilteredList(productos);

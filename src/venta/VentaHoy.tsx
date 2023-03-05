@@ -29,13 +29,22 @@ function VentaHoy() {
         fetchData();
     }, []);
 
-   
+
+    const isLoggedIn = facturadoHoy;
+    let button;
+    if (isLoggedIn) {
+ 
+        button =  <h1>Vendido hoy:<span class="badge bg-secondary">${ Number.parseFloat(facturadoHoy).toFixed(2) }</span></h1>;
+
+    } else {
+      button = <h1>No se registran ventas en el día de hoy.</h1>;
+    }
+    
+
     return (
         <Container>
             <Row>
-             
-                <h1>Facturado hoy:<span class="badge bg-secondary">${ Number.parseFloat(facturadoHoy).toFixed(2) }</span></h1>
-
+                {button}
             </Row>
         </Container>
 

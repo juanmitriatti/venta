@@ -15,7 +15,7 @@ function Venta() {
 
     switch (e.key) {
       case 'F7':
-        console.log('El kilogramo de naranjas cuesta $0.59.');
+        console.log('Apretaron F7.');
         break;
       case 'Enter':
       case 'enter':
@@ -38,6 +38,9 @@ function Venta() {
 
     let today = new Date();
     let dd = String(today.getDate()).padStart(2, '0');
+   /* console.log(dd);
+    return false;*/
+
     let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     let yyyy = today.getFullYear();
     urlencoded.append("total", total);
@@ -50,14 +53,7 @@ function Venta() {
       redirect: 'follow'
     };
 
-    /*let urlLineaEncoded = new URLSearchParams();
-
-    let requestLineaOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: {},
-      redirect: 'follow'
-    };*/
+ 
 
     let factura;
 

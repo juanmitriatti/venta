@@ -23,8 +23,8 @@ function Menu() {
             </NavDropdown>
             <NavDropdown title="Estadisticas" id="collasible-nav-dropdown">
               <NavDropdown.Item href="/venta-hoy">Hoy</NavDropdown.Item>
-              <NavDropdown.Item href="/listadoproducto">
-               Últimos días
+              <NavDropdown.Item href="/venta-ultimos-siete">
+               Últimos 7 días
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
