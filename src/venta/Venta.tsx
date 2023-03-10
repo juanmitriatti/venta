@@ -4,6 +4,7 @@ import AutocompleteInput from "../components/AutocompleteInput";
 import { Producto } from "../interfaces/Producto";
 import ListaProductos from "../producto/ListaProductos";
 import axios from "axios";
+import yogurteria from '../assets/yogurteria.jpg';
 
 function Venta() {
   const [productosAComprar, setProductosAComprar] = useState<Producto[]>([]);
@@ -148,7 +149,10 @@ function Venta() {
 
       <div className="content">
         <div className="row">
-          <div className="col-md-4 offset-md-4"> <AutocompleteInput modalInput={isModalOpen} reiniciar={reiniciar} setReiniciar={setReiniciar} selectProduct={getSelectedValue} />
+        <div className="col-md-4 ">
+          <img src={yogurteria}></img>
+          </div>
+          <div className="col-md-4 "> <AutocompleteInput modalInput={isModalOpen} reiniciar={reiniciar} setReiniciar={setReiniciar} selectProduct={getSelectedValue} />
             {productosAComprar.length > 0 && <ListaProductos setProductosAComprar={setProductosAComprar} productos={productosAComprar} setCompraTotal={setCompraTotal} />}
           </div>
           <div className="col-md-2">
