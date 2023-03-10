@@ -54,8 +54,6 @@ function Venta() {
       redirect: 'follow'
     };
 
- 
-
     let factura;
 
     // Call the API
@@ -116,7 +114,7 @@ function Venta() {
 
         setMensaje(null);
         resetearProductosAComprar();
-        setReiniciar(1);
+        
       }, 3000);
 
 
@@ -135,6 +133,7 @@ function Venta() {
   }
   function resetearProductosAComprar() {
     setProductosAComprar([]);
+    setReiniciar(1);
   }
 
   return (
