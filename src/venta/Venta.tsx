@@ -10,6 +10,8 @@ function Venta() {
   const [mensaje, setMensaje] = useState(null);
   const [isModalOpen, setModalOpen] = useState(false);
   const [total, setCompraTotal] = useState(0);
+  const [reiniciar, setReiniciar] = useState(null);
+
   //productos.reduce((total, producto) => total + producto.precio * producto.cantidad, 0)
   function manejoEnter(e) {
 
@@ -38,14 +40,13 @@ function Venta() {
 
     let today = new Date();
     let dd = String(today.getDate()).padStart(2, '0');
-   /* console.log(dd);
-    return false;*/
 
     let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     let yyyy = today.getFullYear();
     urlencoded.append("total", total);
     urlencoded.append("fecha", yyyy + '/' + mm + '/' + dd);
-
+  /*  console.log("fecha", yyyy + '/' + mm + '/' + dd);
+    return false;*/
     let requestOptions = {
       method: 'POST',
       headers: myHeaders,
@@ -115,6 +116,7 @@ function Venta() {
 
         setMensaje(null);
         resetearProductosAComprar();
+        setReiniciar(1);
       }, 3000);
 
 
@@ -147,7 +149,7 @@ function Venta() {
 
       <div className="content">
         <div className="row">
-          <div className="col-md-4 offset-md-4"> <AutocompleteInput modalInput={isModalOpen} selectProduct={getSelectedValue} />
+          <div className="col-md-4 offset-md-4"> <AutocompleteInput modalInput={isModalOpen} reiniciar={reiniciar} setReiniciar={setReiniciar} selectProduct={getSelectedValue} />
             {productosAComprar.length > 0 && <ListaProductos setProductosAComprar={setProductosAComprar} productos={productosAComprar} setCompraTotal={setCompraTotal} />}
           </div>
           <div className="col-md-2">

@@ -7,8 +7,7 @@ const AltaProducto = () => {
   const [datos, setDatos] = useState({
     nombre: '',
     precio: 0,
-    descripcion: 'testDescription',
-
+    descripcion: '',
   })
 
   const handleInputChange = (event) => {
@@ -73,7 +72,7 @@ const AltaProducto = () => {
         </div>
 
         <div className="col-md-3">
-          <input type="text" placeholder="Descripción" className="form-control" value="testDescription" onChange={handleInputChange} name="descripcion"></input>
+          <input type="text" placeholder="Descripción" className="form-control" value="" onChange={handleInputChange} name="descripcion"></input>
         </div>
         <button type="submit" className="btn btn-primary col-md-3">Guardar Producto</button>
       </form>

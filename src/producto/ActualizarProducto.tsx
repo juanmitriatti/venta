@@ -14,7 +14,7 @@ const ActualizarProducto = () => {
     id: '',
     nombre: '',
     precio: 0,
-    descripcion: 'testDescription',
+    descripcion: '',
   })
 
   let configuration = {
@@ -35,7 +35,7 @@ const ActualizarProducto = () => {
       id: producto.id,
       nombre: producto.nombre,
       precio: producto.precio,
-      descripcion: 'testDescription',
+      descripcion: '',
     })
 
     //setDatos(producto);

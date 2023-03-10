@@ -65,7 +65,8 @@ const AutocompleteInput = (props) => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+    props.setReiniciar(null);
+  }, [props.reiniciar]);
 
   const selectProduct = (producto: Producto) => {
     props.selectProduct(producto);
