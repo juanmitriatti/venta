@@ -26,6 +26,7 @@ const AutocompleteInput = (props) => {
 
   const wrapperRef = useRef(null);
   const inputRef = useRef(null);
+  const url_final = import.meta.env.VITE_URL || 'http://localhost:3000';
 
   useOutsideClick(wrapperRef, () => {
     setModalOpen(false);
@@ -43,7 +44,7 @@ const AutocompleteInput = (props) => {
 
   const config = {
     method: "get",
-    url: "http://localhost:3000/producto",
+    url: url_final+"/producto",
     headers: {},
   };
 

@@ -10,10 +10,11 @@ function ListadoProducto() {
 
     const [productList, setProductList] = useState<Producto[]>([]);
     const [filteredList, setFilteredList] = useState<Producto[]>([]);
+    const url_final = import.meta.env.VITE_URL || 'http://localhost:3000';
 
     const configuration = {
         method: "get",
-        url: "http://localhost:3000/producto",
+        url: url_final+"/producto",
         headers: {},
     };
 

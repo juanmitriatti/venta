@@ -12,6 +12,7 @@ function Venta() {
   const [isModalOpen, setModalOpen] = useState(false);
   const [total, setCompraTotal] = useState(0);
   const [reiniciar, setReiniciar] = useState(null);
+  const url_final = import.meta.env.VITE_URL || 'http://localhost:3000';
 
   //productos.reduce((total, producto) => total + producto.precio * producto.cantidad, 0)
   function manejoEnter(e) {
@@ -29,6 +30,7 @@ function Venta() {
     }
 
   }
+ 
 
   const enviarDatos = async (event) => {
     event.preventDefault()
@@ -58,7 +60,7 @@ function Venta() {
     let factura;
 
     // Call the API
-    fetch('http://localhost:3000/factura', requestOptions).then(function (response) {
+    fetch(url_final+'/factura', requestOptions).then(function (response) {
       if (response.ok) {
         return response.json();
       } else {
@@ -83,13 +85,7 @@ function Venta() {
         lineasAGuardar = [...lineasFinal];
       }
 
-    //  urlLineaEncoded.append("productoLinea", lineasAGuardar);
-
-     // requestLineaOptions.body = urlLineaEncoded;
-    //  console.log("requestLineaOptions", requestLineaOptions)
-      // Fetch another API
-    //  return fetch('http://localhost:3000/linea', requestLineaOptions);
-    return  fetch('http://localhost:3000/linea', {
+    return  fetch(url_final+'/linea', {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
       headers: {
         'Content-Type': 'application/json'
@@ -148,8 +144,10 @@ function Venta() {
       }
 
       <div className="content">
+ 
         <div className="row">
         <div className="col-md-4 ">
+ 
           <img src={yogurteria}></img>
           </div>
           <div className="col-md-4 "> <AutocompleteInput modalInput={isModalOpen} reiniciar={reiniciar} setReiniciar={setReiniciar} selectProduct={getSelectedValue} />

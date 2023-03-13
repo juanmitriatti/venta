@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 
 const AltaProducto = () => {
+  const url_final = import.meta.env.VITE_URL || 'http://localhost:3000';
 
   const [mensaje, setMensaje] = useState(null);
   const [datos, setDatos] = useState({
@@ -38,7 +39,7 @@ const AltaProducto = () => {
       redirect: 'follow'
     };
 
-    fetch("http://localhost:3000/producto", requestOptions)
+    fetch(url_final+"/producto", requestOptions)
       .then(response => response.text)
       .then(result => console.log(result))
       .then(function() {

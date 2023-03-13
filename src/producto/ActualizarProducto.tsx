@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom'
 import axios from "axios";
 
 const ActualizarProducto = () => {
+  const url_final = import.meta.env.VITE_URL || 'http://localhost:3000';
 
   const { id } = useParams()
 
@@ -24,7 +25,7 @@ const ActualizarProducto = () => {
     redirect: 'follow',
   };
   const fetchData = async (identificador) => {
-    configuration.url = "http://localhost:3000/producto/" + identificador;
+    configuration.url = url_final+"/producto/" + identificador;
 
     // Este array va a almacenar los productos que vengan del backend. Y además, una property llamada
     // identificador esta conformada por ID + NOMBRE, esa propiedad va a aparecer en el search autpomplete.
@@ -73,7 +74,7 @@ const ActualizarProducto = () => {
       redirect: 'follow'
     };
 
-    fetch("http://localhost:3000/producto/"+ datos.id, requestOptions)
+    fetch(url_final+"/producto/"+ datos.id, requestOptions)
       .then(response => response.text)
       .then(result => console.log(result))
       .then(function () {

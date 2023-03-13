@@ -7,13 +7,14 @@ import { Producto } from "../interfaces/Producto";
 import { Link } from "react-router-dom";
 
 function VentaHoy() {
+    const url_final = import.meta.env.VITE_URL || 'http://localhost:3000';
 
     const [facturadoHoy, setFacturadoHoy] = useState();
     
 
     const configuration = {
         method: "get",
-        url: "http://localhost:3000/linea/factura/hoy",
+        url: url_final+"/linea/factura/hoy",
         headers: {},
     };
 
