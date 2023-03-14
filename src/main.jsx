@@ -11,13 +11,11 @@ import ListadoProducto from './producto/ListadoProducto';
 import ActualizarProducto from './producto/ActualizarProducto';
 import VentaHoy from './venta/VentaHoy';
 import VentaUltimosSiete from './venta/VentaUltimosSiete';
+import Home from './home/home';
 
 
 const NoPage = () => {
   return <h1>Esta página no existe. Error 404</h1>;
-};
-const Home = () => {
-  return <h1>Home</h1>;
 };
 
 export default function Main() {

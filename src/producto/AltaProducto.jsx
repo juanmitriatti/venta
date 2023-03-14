@@ -50,7 +50,7 @@ const AltaProducto = () => {
 
   return (
     <div className='container'>
-      <h1>Alta Producto</h1>
+      <h3>Alta Producto</h3>
 
       {mensaje &&
         <div className='row'>
@@ -59,7 +59,7 @@ const AltaProducto = () => {
           </div>
         </div>
       }
-      <form className="row" onSubmit={enviarDatos}>
+      <form className="row" onSubmit={enviarDatos} style={{ marginTop: "30px" }}>
         <div className="col-md-3">
           <input type="text" placeholder="Nombre" required={true} className="form-control" onChange={handleInputChange} name="nombre"></input>
         </div>
@@ -73,17 +73,11 @@ const AltaProducto = () => {
         </div>
 
         <div className="col-md-3">
-          <input type="text" placeholder="Descripción" className="form-control" value="" onChange={handleInputChange} name="descripcion"></input>
+          <input type="text" placeholder="Descripción" className="form-control" onChange={handleInputChange} name="descripcion"></input>
         </div>
         <button type="submit" className="btn btn-primary col-md-3">Guardar Producto</button>
       </form>
-      <ul style={{ listStyle: "none", marginTop: "30px" }}>
-        <li>Nombre : {datos.nombre}</li>
-        <li>Precio: {datos.precio}</li>
-        <li>Descripción: {datos.descripcion}</li>
-
-      </ul>
-
+     
     </div>
   );
 }

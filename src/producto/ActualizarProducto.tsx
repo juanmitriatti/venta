@@ -36,7 +36,7 @@ const ActualizarProducto = () => {
       id: producto.id,
       nombre: producto.nombre,
       precio: producto.precio,
-      descripcion: '',
+      descripcion:  producto.descripcion,
     })
 
     //setDatos(producto);
@@ -88,7 +88,7 @@ const ActualizarProducto = () => {
 
   return (
     <div className='container'>
-      <h1>Actualizar Producto</h1>
+      <h3>Actualizar Producto</h3>
 
       {mensaje &&
         <div className='row'>
@@ -98,7 +98,7 @@ const ActualizarProducto = () => {
         </div>
       }
 
-      <form className="row" onSubmit={enviarDatos}>
+      <form className="row" onSubmit={enviarDatos} style={{ marginTop: "30px" }}>
         <div className="col-md-3">
           <input type="text" value={datos.nombre} placeholder="Nombre" required={true} className="form-control" onChange={handleInputChange} name="nombre"></input>
         </div>
@@ -121,14 +121,7 @@ const ActualizarProducto = () => {
         <input type="hidden" name="id" value={id}></input>
 
       </form>
-      <ul style={{ listStyle: "none", marginTop: "30px" }}>
-
-
-        <li>Nombre : {datos.nombre}</li>
-        <li>Precio: {datos.precio}</li>
-        <li>Descripción: {datos.descripcion}</li>
-      </ul>
-
+       
     </div>
   );
 }
