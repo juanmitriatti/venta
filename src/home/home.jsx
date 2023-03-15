@@ -5,7 +5,7 @@ function Home() {
 
     return (
         <div style={{ textAlign:"center" }}>
-            <h1 style={{ color:"green" }}>Yogurteria </h1>
+            <h1 style={{ color:"#227B5B" }}>Yogurteria </h1>
             <img src={yogurteria}></img>
         </div>
     );
